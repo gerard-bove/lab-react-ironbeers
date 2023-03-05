@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 function NewBeer() {
     const [name, setName] = useState("");
@@ -11,18 +11,30 @@ function NewBeer() {
     const [attenuation_level, setAttenuationLevel] = useState("");
     const [contributed_by, setContributedBy] = useState("");
     const [errorForm, setErrorForm] = useState(false);
+    const [submited, setsubmited] = useState(false);
 
     const submitHandler = (e) => {
         e.preventDefault();
         if(name==="" || tagline==="" || description==="" || first_brewed==="" || brewers_tips==="" || attenuation_level==="" || contributed_by==="") setErrorForm(true)
-        axios.post("https://ih-beers-api2.herokuapp.com/beers/new", {name, tagline, description, first_brewed, brewers_tips, attenuation_level, contributed_by})
+        else {
+            axios.post("https://ih-beers-api2.herokuapp.com/beers/new", {name, tagline, description, first_brewed, brewers_tips, attenuation_level, contributed_by})
+            setsubmited(true);
+            setName("")
+            setTagline("")
+            setDescription("")
+            setFirstBrewed("")
+            setBrewersTips("")
+            setAttenuationLevel("")
+            setContributedBy("")
+        }
     }
 
     return (
         <>
             <Header />
             <form onSubmit={submitHandler} className="mt-5">
-                {errorForm && <div className="alert alert-danger" role="alert">There are some mistake</div>}
+                {errorForm && <div className="alert alert-danger" role="alert">Please, fill all inputs</div>}
+                {submited && <div className="alert alert-success" role="alert">Beer created successfully</div>}
                 <div className="row mb-3">
                     <label htmlFor="inputName" className="col-sm-2 col-form-label">Name</label>
                     <div className="col-sm-9">
