@@ -32,7 +32,7 @@ function NewBeer() {
     return (
         <>
             <Header />
-            <form onSubmit={submitHandler} className="mt-5">
+            <form onSubmit={submitHandler} className="m-5">
                 {errorForm && <div className="alert alert-danger" role="alert">Please, fill all inputs</div>}
                 {submited && <div className="alert alert-success" role="alert">Beer created successfully</div>}
                 <div className="row mb-3">
@@ -77,7 +77,7 @@ function NewBeer() {
                     <input type="text" className="form-control" id="inputContributed" value={contributed_by} onChange={(e) => setContributedBy(e.target.value)}/>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary">Create a beer</button>
+                <button type="submit" className="btn btn-primary" style={{backgroundColor: '#61dafb', border: 'none', borderRadius: '20px'}}>ADD NEW</button>
             </form>
         </>
     )

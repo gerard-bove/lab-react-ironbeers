@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Home() {
     
     return (
-        <div className="card mb-3  mt-5 mb-5 mx-auto">
+        <div className="card mb-3 mb-5 mx-auto">
             <div className="card mx-auto mt-5" style={{width: "18rem"}}>
                 <img src={beers} className="card-img-top" alt="beers" />
                 <div className="card-body">

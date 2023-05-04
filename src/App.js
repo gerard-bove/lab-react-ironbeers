@@ -7,19 +7,17 @@ import { Route, Routes } from 'react-router-dom';
 
 import Home from './pages/Home';
 import BeerDetail from './pages/BeerDetail';
-//import { useState, useEffect } from "react";
 
 function App() {
   return (
     <div className="App">
-      
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/beers' element={<Beers/>}/>
         <Route path='/random-beer' element={<RandomBeer/>}/>
         <Route path='/new-beer' element={<NewBeer/>}/>
         <Route path='/beer/:idBeer' element={<BeerDetail/>}/>
-    </Routes>
+      </Routes>
     </div>
   );
 }
